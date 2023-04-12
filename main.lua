@@ -190,7 +190,7 @@ local event = lib.Event("SetBoothText")
 
 local boothui = game.Players.LocalPlayer.PlayerGui.MapUIContainer.MapUI.BoothUI
 
-_G.ourbooth
+_G.ourbooth = 0
 
 function getOurBooth()
 for i,v in ipairs(boothui:GetChildren()) do
