@@ -190,13 +190,13 @@ local event = lib.Event("SetBoothText")
 
 local boothui = game.Players.LocalPlayer.PlayerGui.MapUIContainer.MapUI.BoothUI
 
-_G.ourbooth = 0
+local ourbooth
 
 function getOurBooth()
 for i,v in ipairs(boothui:GetChildren()) do
-        print(v.Details.Owner.Text:split("'")[1])
+   print(v.Details.Owner.Text:split("'")[1])
    if v.Details.Owner.Text:split("'")[1] == " "..game.Players.LocalPlayer.DisplayName  then
-       _G.ourbooth = v
+       ourbooth = v
        print("Our Booth: " .. v.Name)
        break
     end
