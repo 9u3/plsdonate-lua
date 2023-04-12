@@ -194,7 +194,7 @@ local ourbooth
 
 function getOurBooth()
 for i,v in ipairs(boothui:GetChildren()) do
-   if v.Details.Owner.Text:split("'")[1] == game.Players.LocalPlayer.DisplayName  then
+   if v.Details.Owner.Text:split("'")[1] == " "..game.Players.LocalPlayer.DisplayName  then
        ourbooth = v
        print("Our Booth: " .. v.Name)
        break
