@@ -225,7 +225,15 @@ if _G.autoUpdateGoal then
     print("Auto Updating Goal....")
     event:FireServer(_G.Text .. plast .. " / " .. tostring(tonumber(plast) + _G.increaseGoalBy), "booth")
 else
-    event:FireServer(_G.Text .. plast .. " / " .. _G.goal, "booth")
+    local text = plast
+    function split(arg)
+	    local len = string.len(arg)
+	    local firstHalf = string.sub(arg, 1, len/2-1)
+	    local secondHalf = string.sub(arg, (len/2), len):sub(#arg-3,#arg-3)
+	    return firstHalf .. '.' .. secondHalf
+    end
+    local String = split(text)
+    event:FireServer(_G.Text .. String .. "k / " .. _G.goal, "booth")
 end
 
 while wait(_G.boardUpdateInterval) do
