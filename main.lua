@@ -237,7 +237,7 @@ else
 end
 
 while wait(_G.boardUpdateInterval) do
-    plast = string.gsub(ourbooth.Details.Raised.Text:split(" ")[1], ",", ""):gsub("", "")
+    plast = split(string.gsub(ourbooth.Details.Raised.Text:split(" ")[1], ",", ""):gsub("", ""))
     if tonumber(plast) > last then
         if _G.saythanks then
             llast = last
