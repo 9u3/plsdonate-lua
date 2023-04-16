@@ -195,7 +195,7 @@ local ourbooth
 function getOurBooth()
 for i,v in ipairs(boothui:GetChildren()) do
    print(v.Details.Owner.Text:split("'")[1])
-   if v.Details.Owner.Text:split("'")[1] == " "..game.Players.LocalPlayer.DisplayName  then
+   if string.match(v.Details.Owner.Text:split("'")[1], game.Players.LocalPlayer.DisplayName) then
        ourbooth = v
        print("Our Booth: " .. v.Name)
        break
@@ -217,7 +217,7 @@ end
 
 print("Begging Loop Done")
 
-local plast = string.gsub(ourbooth.Details.Raised.Text:split(" ")[1], ",", "")
+local plast = string.gsub(ourbooth.Details.Raised.Text:split(" ")[1], ",", ""):gsub("", "")
 local last = tonumber(plast)
 local llast
 
@@ -229,7 +229,7 @@ else
 end
 
 while wait(_G.boardUpdateInterval) do
-    plast = string.gsub(ourbooth.Details.Raised.Text:split(" ")[1], ",", "")
+    plast = string.gsub(ourbooth.Details.Raised.Text:split(" ")[1], ",", ""):gsub("", "")
     if tonumber(plast) > last then
         if _G.saythanks then
             llast = last
